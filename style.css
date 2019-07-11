@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: o;
+}
+
+.baner{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.baners-img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all ease-in-out 5s;
+    -webkit-transition: all ease-in-out 5s;
+    -moz-transition: all ease-in-out 5s;
+    -o-transition: all ease-in-out 5s;
+}
+
+.baner #img3{
+    background-image: url(img/back-view-bag-beach-2401109.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.baner #img2{
+    background-image: url(img/annie-spratt-TR_BV5LLXtY-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.baner #img1{
+    background-image: url(img/back-view-beach-blur-1838622.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
