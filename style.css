@@ -1,6 +1,9 @@
-*{
-    margin: 0;
+body{
     padding: o;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.8em;
+    color: #666;
 }
 
 .baner{
@@ -38,4 +41,32 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+.section{
+    padding: 50px 80px;
+}
+.title-section{
+    text-align: center;
+    margin-bottom: 15px;
+}
+.section-light{
+    background: #f4f4f4;
+}
+.section-dark{
+    background: #282e34;
+}
+.bckg-img1{
+    background-image: url("img/adult-adventure-backlit-915972.jpg");
+}
+.bckg-img2{
+    background-image: url("img/background-calm-clouds-747964\ \(1\).jpg");
+}
+
+.bckg-img{
+    height: 300px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.7;
 }
