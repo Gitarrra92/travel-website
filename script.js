@@ -1,72 +1,51 @@
-let imgCounter = 1;
-let timer = 0;
-
-window.onload = function() {
-    banerLoop();
+const TypeWriter = function(txtElement, words, wait = 3000) {
+    this.txtElement = txtElement;
+    this.words = words;
+    this.txt = "";
+    this.wordIndex = 0;
+    this.wait = parseInt(wait, 10);
+    this.type();
+    this.isDeleting = false;
 }
 
-let startBannerLoop = setInterval(function() {
-    banerLoop();
-}, timer); 
+TypeWriter.prototype.type = function() {
+    const current = this.wordIndex % this.words.length;
 
-let firstImg = document.querySelector("#img1");
-let secondImg = document.querySelector("#img2");
-let thirdImg = document.querySelector("#img3");
+    const fulltxt = this.words[current];
 
-function banerLoop() {
-    if(imgCounter === 1) {
-        secondImg.style.opacity = "0";
-
-        setTimeout(function(){
-            firstImg.style.right = "0px";
-            firstImg.style.zIndex = "1000";
-            secondImg.style.right = "-100vw";
-            secondImg.style.zIndex = "1500";
-            thirdImg.style.right = "100vw";
-            thirdImg.style.zIndex = "500";
-         }, 500);
-     
-        setTimeout(function(){
-            secondImg.style.opacity = "1";
-        }, 1000);
-
-        imgCounter = 2;
+    if(this.isDeleting){
+        this.txt = fulltxt.substring(0, this.txt.length - 1);
+    } else {
+        this.txt = fulltxt.substring(0, this.txt.length + 1);
     }
 
-    else if(imgCounter === 2) {
-        thirdImg.style.opacity = "0";
+    this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
 
-        setTimeout(function(){
-            secondImg.style.right = "0px";
-            secondImg.style.zIndex = "1000";
-            thirdImg.style.right = "-100vw";
-            thirdImg.style.zIndex = "1500";
-            firstImg.style.right = "100vw";
-            firstImg.style.zIndex = "500";
-         }, 500);
-     
-        setTimeout(function(){
-            thirdImg.style.opacity = "1";
-        }, 1000);
-
-        imgCounter = 3;
+    //Initial Type Speed
+    let typeSpeed = 300;
+    if(this.isDeleting){
+        typeSpeed /= 2;
     }
-    else if(imgCounter === 3) {
-        firstImg.style.opacity = "0";
 
-        setTimeout(function(){
-            thirdImg.style.right = "0px";
-            thirdImg.style.zIndex = "1000";
-            firstImg.style.right = "-100vw";
-            firstImg.style.zIndex = "1500";
-            secondImg.style.right = "100vw";
-            secondImg.style.zIndex = "500";
-         }, 500);
-     
-        setTimeout(function(){
-            firstImg.style.opacity = "1";
-        }, 1000);
-
-        imgCounter = 1;
+    //If word is complete
+    if(!this.isDeleting && this.txt === fulltxt) {
+        //Make a pause at the end
+        typeSpeed = this.wait;
+        this.isDeleting = true;
+    } else if(this.isDeleting && this.txt === "") {
+        this.isDeleting = false;
+        this.wordIndex++;
+        typeSpeed = 500;
     }
+    setTimeout(() => this.type(), typeSpeed);
+}
+
+document.addEventListener("DOMContentLoaded", init);
+
+function init() {
+    const txtElement = document.querySelector(".txt-type");
+    const words = JSON.parse(txtElement.getAttribute("data-words"));
+    const wait = txtElement.getAttribute("data-wait");
+
+    new TypeWriter(txtElement, words, wait);
 }
