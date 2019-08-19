@@ -29,22 +29,27 @@
 
 <div class="form-wrapper">
   <div class="form">
-    <div class="title">
-    </div>
-      <div class="inputs">
-        <input class="input" type="text" placeholder="Name">
-        <input class="input" type="text" placeholder="Email">
-        <input class="input" type="text" placeholder="Phone Number">
-      </div>
-      <div class="msg">
-        <textarea class="input-txt" placeholder="Message me"></textarea>
-        <button class="btn" type="submit">Send</button>
-      </div>
+    <form id="contactForm">
+        <div class="inputs">
+          <input class="input" type="text" placeholder="Name" name="name" id="name">
+          <input class="input" type="text" placeholder="Email" name="email" id="email">
+          <input class="input" type="text" placeholder="Phone Number" name="phone" id="phone">
+        </div>
+        <div class="msg">
+          <textarea class="input-txt" placeholder="Message me" id="msg"></textarea>
+          <button class="btn" type="submit">Send</button>
+        </div>
+      </form>
   </div>
 </div>
 
 </main>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-database.js"></script>
 <script src="script.js"></script>
+<script src="form.js"></script>
 </body>
 
 </html>
