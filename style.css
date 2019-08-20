@@ -95,6 +95,8 @@ body{
     
     border-radius: 30px;
     outline: none;
+    width: 100%;
+    box-sizing: border-box;
 }
 .input {
     padding: 20px;
@@ -120,4 +122,17 @@ body{
 .input:focus, .input-txt:focus, .btn:focus {
     width: 80%;
     border: 3px solid gold;
+}
+
+@media(max-width: 768px) {
+    .form {
+        flex-direction: column;
+    }
+    .inputs {
+        margin-right: 0;
+    }
+
+    .inputs, .msg {
+        width: 80%;
+    }
 }
