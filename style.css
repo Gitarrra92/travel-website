@@ -1,5 +1,5 @@
 body{
-    padding: o;
+    padding: 0;
     font-family: "Lato", sans-serif;
     font-weight: 400;
     line-height: 1.8em;
@@ -19,7 +19,7 @@ body{
     position: relative;
     left: 10%;
     top: 50%;
-    color: gold;
+    color: #FDAB00;;
     font-size: 110px;
     font-weight: 800;
     text-transform: uppercase;
@@ -31,7 +31,7 @@ body{
 }
 
 .txt{
-    border-right: 2px solid gold;
+    border-right: 2px solid #FDAB00;;
 }
 .section{
     padding: 50px 80px;
@@ -113,7 +113,7 @@ body{
 }
 
 .btn {
-    background: gold;
+    background: #FDAB00;
     cursor: pointer;
     padding: 20px;
     border: 3px solid black;
@@ -124,8 +124,83 @@ body{
 }
 .input:focus, .input-txt:focus, .btn:focus {
     width: 80%;
-    border: 3px solid gold;
+    border: 3px solid #FDAB00;
 }
+
+#wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 55vw;
+    overflow: hidden;
+}
+
+.layer {
+    overflow: hidden;
+}
+
+.layer, .content-wrap {
+    position: absolute;
+    width: 100vw;
+    min-height: 55vw;
+}
+
+.content-body {
+    width: 25%;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    transform: translateY(-50%);
+}
+
+.layer img {
+    position: absolute;
+    width: 35%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bottom {
+    background: #282e34;
+    z-index: 1;
+}
+
+.bottom .content-body {
+   right: 5%; 
+   color: #f4f4f4;
+}
+
+.top {
+    background: #f4f4f4;
+    z-index: 2;
+    width: 50vw;
+    transform: skew(-30deg);
+    margin-left: -1000px;
+    width: calc(50vw + 1000px);
+}
+
+.top .content-body {
+    left: 5%;    
+}
+
+.handle {
+    position: absolute;
+    height: 200%;
+    display: block;
+    background: #FDAB00;
+    width: 5px;
+    left: 50%;
+    z-index: 3;
+    top: 50%;
+    transform: rotate(30deg) translateY(-50%);
+    transform-origin: top;
+}
+
+.top .content-wrap { 
+    transform: skew(30deg);
+    margin-left: 1000px;
+}
+
 
 @media(max-width: 768px) {
     .form {
@@ -138,4 +213,5 @@ body{
     .inputs, .msg {
         width: 80%;
     }
+   
 }
